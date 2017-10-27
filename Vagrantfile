@@ -4,6 +4,7 @@ nodes = [
     :ram => 256,
     :ip => '10.0.0.10',
     :cpu_cap => 50,
+    :gui => false,
     :box => 'ubuntu/trusty64',
 #    :provision => 'setup_bash_script.sh',
 #    :box_version => '10'
@@ -39,7 +40,9 @@ Vagrant.configure("2") do |config|
 
       memory = node[:ram] ? node[:ram] : 256;
       cpu_cap = node[:cpu_cap] ? node[:cpu_cap] : 50;
+
       nodeconfig.vm.provider :virtualbox do |vb|
+        vb.gui = node.fetch(:gui, false)
         vb.customize [
           "modifyvm", :id,
           "--cpuexecutioncap", cpu_cap.to_s,
