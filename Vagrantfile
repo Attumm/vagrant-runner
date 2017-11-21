@@ -4,19 +4,20 @@ nodes = [
     :ram => 256,
     :ip => '10.0.0.10',
     :cpu_cap => 50,
+    :cpu => 2,
     :gui => false,
     :box => 'ubuntu/trusty64',
 #    :provision => 'setup_bash_script.sh',
 #    :box_version => '10'
   },
-  {
-    :hostname => 'httpd',
-    :ip => '10.0.0.20',
-    :ram => 1024,
-    :box => 'centos/7',
+#  {
+#    :hostname => 'httpd',
+#    :ip => '10.0.0.20',
+#    :ram => 1024,
+#    :box => 'centos/7',
 #    :cpu_cap => 50,
 #    :ansible_provision => 'setup_ansible_script.yml',
-  },
+#  },
 ]
 
 
@@ -47,6 +48,7 @@ Vagrant.configure("2") do |config|
           "modifyvm", :id,
           "--cpuexecutioncap", cpu_cap.to_s,
           "--memory", memory.to_s,
+          "--cpus", node.fetch(:cpu, 1),
         ]
       end
     end
