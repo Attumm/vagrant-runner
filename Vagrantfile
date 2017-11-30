@@ -7,8 +7,6 @@ nodes = [
     :cpu => 2,
     :gui => false,
     :box => 'ubuntu/trusty64',
-#    :provision => 'setup_bash_script.sh',
-#    :box_version => '10'
   },
 #  {
 #    :hostname => 'httpd',
