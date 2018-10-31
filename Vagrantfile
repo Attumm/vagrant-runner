@@ -1,19 +1,18 @@
 nodes = [
   {
     :hostname => 'mgmt',
-    :ram => 256,
+    :ram => 1024,
     :ip => '10.0.0.10',
-    :cpu_cap => 50,
     :cpu => 2,
     :gui => false,
-    :box => 'ubuntu/trusty64',
+    :box => 'ubuntu/xenial64',
   },
 #  {
 #    :hostname => 'httpd',
 #    :ip => '10.0.0.20',
 #    :ram => 1024,
 #    :box => 'centos/7',
-#    :cpu_cap => 50,
+#    :cpu_cap => 80,
 #    :ansible_provision => 'setup_ansible_script.yml',
 #  },
 ]
